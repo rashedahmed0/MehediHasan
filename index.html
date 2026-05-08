@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Md. Mehedi Hasan | Civil Engineer Portfolio</title>
+
+    <!-- GOOGLE FONT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      :root {
+        --primary: #2563eb;
+        --secondary: #0f172a;
+        --accent: #38bdf8;
+
+        --bg: #f8fafc;
+        --bg2: #e2e8f0;
+
+        --text: #0f172a;
+        --text2: #475569;
+
+        --glass: rgba(255, 255, 255, 0.55);
+
+        --border: rgba(255, 255, 255, 0.25);
+
+        --shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+
+        --gradient: linear-gradient(135deg, #2563eb, #0ea5e9);
+      }
+
+      body.dark {
+        --bg: #020617;
+        --bg2: #0f172a;
+        --text: #f8fafc;
+        --text2: #cbd5e1;
+        --glass: rgba(15, 23, 42, 0.55);
+        --border: rgba(255, 255, 255, 0.08);
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: radial-gradient(
+            circle at top left,
+            #dbeafe 0%,
+            transparent 30%
+          ),
+          radial-gradient(circle at bottom right, #bfdbfe 0%, transparent 25%),
+          var(--bg);
+
+        background-attachment: fixed;
+
+        color: var(--text);
+
+        overflow-x: hidden;
+      }
+
+      body.dark {
+        background: radial-gradient(
+            circle at top left,
+            #1e3a8a33 0%,
+            transparent 30%
+          ),
+          radial-gradient(circle at bottom right, #0ea5e933 0%, transparent 25%),
+          var(--bg);
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(#2563eb, #0ea5e9);
+        border-radius: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        width: min(1200px, 90%);
+        margin: auto;
+      }
+
+      section {
+        padding: 100px 0;
+      }
+
+      .blur-orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(120px);
+        z-index: -2;
+      }
+
+      .orb1 {
+        width: 300px;
+        height: 300px;
+        background: #2563eb33;
+        top: 0;
+        left: 0;
+      }
+
+      .orb2 {
+        width: 300px;
+        height: 300px;
+        background: #0ea5e933;
+        right: 0;
+        bottom: 0;
+      }
+
+      /* NAVBAR */
+
+      .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+
+        backdrop-filter: blur(18px);
+
+        background: rgba(255, 255, 255, 0.45);
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      body.dark .navbar {
+        background: rgba(2, 6, 23, 0.6);
+      }
+
+      .nav-wrapper {
+        height: 80px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 2rem;
+        font-weight: 900;
+
+        background: var(--gradient);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .menu-btn {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* HERO */
+
+      #home {
+        min-height: 100vh;
+
+        display: flex;
+        align-items: center;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        line-height: 1.1;
+        margin: 20px 0;
+        font-weight: 900;
+      }
+
+      .hero h1 span {
+        background: var(--gradient);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text2);
+      }
+
+      .typing {
+        font-size: 1.4rem;
+        color: var(--primary);
+        font-weight: 700;
+        height: 40px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 18px;
+        margin-top: 35px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 14px 32px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+        transition: 0.35s;
+      }
+
+      .btn-primary {
+        background: var(--gradient);
+        color: white;
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.25);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-5px);
+      }
+
+      .btn-outline {
+        border: 1px solid var(--primary);
+        background: transparent;
+        color: var(--primary);
+      }
+
+      .btn-outline:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      .profile-wrapper {
+        position: relative;
+        width: 360px;
+        height: 360px;
+        margin: auto;
+      }
+
+      .profile-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: -12px;
+
+        border-radius: 50%;
+
+        background: linear-gradient(135deg, #3b82f6, #0ea5e9, #2563eb);
+
+        filter: blur(30px);
+
+        opacity: 0.6;
+        z-index: -1;
+      }
+
+      .profile-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid rgba(255, 255, 255, 0.4);
+      }
+
+      /* GLASS CARD */
+
+      .glass-card {
+        background: var(--glass);
+
+        border: 1px solid var(--border);
+
+        backdrop-filter: blur(18px);
+
+        border-radius: 30px;
+
+        padding: 35px;
+
+        box-shadow: var(--shadow);
+
+        transition: 0.4s;
+
+        overflow: hidden;
+
+        position: relative;
+      }
+
+      .glass-card::before {
+        content: "";
+
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+
+        top: 0;
+        left: -100%;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+
+        transition: 0.8s;
+      }
+
+      .glass-card:hover::before {
+        left: 100%;
+      }
+
+      .glass-card:hover {
+        transform: translateY(-10px) scale(1.02);
+
+        box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
+      }
+
+      /* SECTION */
+
+      .section-title {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 70px;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+
+        width: 120px;
+        height: 5px;
+
+        border-radius: 999px;
+
+        background: var(--gradient);
+
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -18px;
+      }
+
+      /* GRID */
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      /* ABOUT */
+
+      .about-text {
+        line-height: 1.9;
+        color: var(--text2);
+      }
+
+      /* SKILL */
+
+      .skill {
+        margin-top: 20px;
+      }
+
+      .skill-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .skill-bar {
+        height: 10px;
+        background: #dbeafe;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      body.dark .skill-bar {
+        background: #1e293b;
+      }
+
+      .skill-progress {
+        height: 100%;
+        background: var(--gradient);
+        border-radius: 999px;
+      }
+
+      /* PROJECT */
+
+      .project-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 20px;
+        margin-bottom: 20px;
+      }
+
+      .project-card h3 {
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+      }
+
+      /* CONTACT */
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 16px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.12);
+        margin-bottom: 20px;
+        color: var(--text);
+        font-family: inherit;
+        outline: none;
+      }
+
+      body.dark input,
+      body.dark textarea {
+        background: rgba(15, 23, 42, 0.6);
+      }
+
+      /* FOOTER */
+
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--text2);
+      }
+
+      /* DARK TOGGLE */
+
+      .dark-toggle {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        z-index: 999;
+
+        width: 50px;
+        height: 50px;
+
+        border-radius: 50%;
+
+        border: none;
+
+        background: var(--glass);
+
+        backdrop-filter: blur(10px);
+
+        color: var(--text);
+
+        cursor: pointer;
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 900px) {
+        .hero,
+        .grid-2,
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          text-align: center;
+        }
+
+        .profile-wrapper {
+          width: 260px;
+          height: 260px;
+        }
+
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-title {
+          font-size: 2.3rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .menu-btn {
+          display: block;
+        }
+
+        .hero-buttons {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- BLUR -->
+    <div class="blur-orb orb1"></div>
+    <div class="blur-orb orb2"></div>
+
+    <!-- DARK MODE -->
+    <button class="dark-toggle" id="darkBtn">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+      <div class="container nav-wrapper">
+        <a href="#" class="logo"> MH. </a>
+
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <section id="home">
+      <div class="container hero">
+        <div data-aos="fade-right">
+          <h4 style="color: #2563eb">CIVIL ENGINEER & LEADER</h4>
+
+          <h1>
+            Md. Mehedi
+            <span>Hasan</span>
+          </h1>
+
+          <div class="typing">
+            <span id="typed"></span>
+          </div>
+
+          <p>
+            Construction Planning, Contract Management, Project Coordination &
+            Youth Leadership. Building sustainable and impactful infrastructure
+            through innovation and modern engineering excellence.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="btn btn-primary">Hire Me</button>
+
+            <button class="btn btn-outline">Download Resume</button>
+          </div>
+        </div>
+
+        <div data-aos="fade-left">
+          <div class="profile-wrapper">
+            <img
+              src="https://media.licdn.com/dms/image/v2/D5603AQFMiKsLD_ALow/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718267800326?e=1779926400&v=beta&t=311LfOCA8f8c494G8mKcDfWZOfnr5THjTAZUL1ctKQ0"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="grid-2">
+          <div class="glass-card">
+            <h3 style="font-size: 2rem; margin-bottom: 20px">
+              Professional Summary
+            </h3>
+
+            <p class="about-text">
+              Experienced Civil Engineer specializing in construction planning,
+              project coordination, scheduling, contract management and
+              operational leadership. Currently serving as Senior Executive at
+              Edison Real Estate.
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <h3 style="font-size: 2rem; margin-bottom: 20px">Education</h3>
+
+            <p style="margin-bottom: 15px">
+              <strong>BSc in Civil Engineering</strong>
+            </p>
+
+            <p>Sylhet Engineering College</p>
+
+            <p style="margin-top: 25px">📍 Dhaka, Bangladesh</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="grid-2">
+          <div class="glass-card">
+            <h3>Edison Real Estate</h3>
+
+            <p style="margin: 15px 0; color: #2563eb">Senior Executive</p>
+
+            <p>
+              Construction operations, project analysis, coordination and
+              contract management.
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <h3>Amin Mohammad Group</h3>
+
+            <p style="margin: 15px 0; color: #2563eb">Project Coordinator</p>
+
+            <p>Scheduling, planning, communication and project execution.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="grid-3">
+          <div class="glass-card project-card">
+            <img src="https://picsum.photos/id/104/500/300" />
+
+            <h3>Green Valley Residency</h3>
+
+            <p>Modern sustainable residential complex.</p>
+          </div>
+
+          <div class="glass-card project-card">
+            <img src="https://picsum.photos/id/48/500/300" />
+
+            <h3>Corporate Tower</h3>
+
+            <p>LEED-certified commercial infrastructure.</p>
+          </div>
+
+          <div class="glass-card project-card">
+            <img src="https://picsum.photos/id/106/500/300" />
+
+            <h3>Flyover Expansion</h3>
+
+            <p>Large scale transportation infrastructure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="grid-2">
+          <div class="glass-card">
+            <div class="skill">
+              <div class="skill-top">
+                <span>Construction Planning</span>
+                <span>95%</span>
+              </div>
+
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-top">
+                <span>Contract Management</span>
+                <span>88%</span>
+              </div>
+
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 88%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-top">
+                <span>Leadership</span>
+                <span>90%</span>
+              </div>
+
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <h3 style="font-size: 2rem; margin-bottom: 20px">Core Expertise</h3>
+
+            <p style="line-height: 2; color: var(--text2)">
+              ✔ Construction Coordination <br />
+              ✔ Site Supervision <br />
+              ✔ Project Scheduling <br />
+              ✔ Contract Management <br />
+              ✔ Communication <br />
+              ✔ Team Leadership
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="grid-2">
+          <div class="glass-card">
+            <input type="text" placeholder="Your Name" />
+
+            <input type="email" placeholder="Your Email" />
+
+            <textarea rows="5" placeholder="Your Message"></textarea>
+
+            <button class="btn btn-primary">Send Message</button>
+          </div>
+
+          <div class="glass-card">
+            <h3 style="margin-bottom: 20px; font-size: 2rem">
+              Contact Information
+            </h3>
+
+            <p style="margin-bottom: 15px">📍 Dhaka, Bangladesh</p>
+
+            <p style="margin-bottom: 15px">📧 mehedi.civil@engineer.com</p>
+
+            <p style="margin-bottom: 15px">📞 +8801712345678</p>
+
+            <div
+              style="
+                margin-top: 30px;
+                font-size: 1.5rem;
+                display: flex;
+                gap: 20px;
+              "
+            >
+              <a href="#">
+                <i class="fab fa-linkedin"></i>
+              </a>
+
+              <a href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+
+              <a href="#">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>© 2026 Md. Mehedi Hasan — Civil Engineer Portfolio</footer>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // DARK MODE
+
+      const darkBtn = document.getElementById("darkBtn");
+
+      darkBtn.onclick = () => {
+        document.body.classList.toggle("dark");
+      };
+
+      // TYPING
+
+      const words = [
+        "Civil Engineer",
+        "Project Coordinator",
+        "Contract Manager",
+        "Youth Leader",
+      ];
+
+      let i = 0;
+      let j = 0;
+      let deleting = false;
+
+      function typing() {
+        let current = words[i];
+
+        if (!deleting) {
+          document.getElementById("typed").innerHTML = current.substring(
+            0,
+            j++
+          );
+
+          if (j > current.length) {
+            deleting = true;
+
+            setTimeout(typing, 1200);
+
+            return;
+          }
+        } else {
+          document.getElementById("typed").innerHTML = current.substring(
+            0,
+            j--
+          );
+
+          if (j === 0) {
+            deleting = false;
+
+            i = (i + 1) % words.length;
+          }
+        }
+
+        setTimeout(typing, deleting ? 60 : 120);
+      }
+
+      typing();
+    </script>
+  </body>
+</html>
